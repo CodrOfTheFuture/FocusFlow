@@ -4,7 +4,7 @@ const ToDoInput = (props) => {
     const {handleAddToDos, todoValue, setTodoValue} = props
     return (
         <header>
-            <input value={todoValue} onChange={(e) =>{
+            <input className="todoInput" value={todoValue} onChange={(e) =>{
                 setTodoValue(e.target.value)
             }} placeholder="Enter todo..."/>
 

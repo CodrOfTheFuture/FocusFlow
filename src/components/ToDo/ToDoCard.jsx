@@ -7,13 +7,13 @@ export default function ToDoCard(props) {
                         
                         <button onClick={() => {
                             handleEditToDo(index)
-                        }}>
+                        }} className="editButton">
                             <i className="fa-solid fa-pen-to-square"></i>
                         </button>
 
                         <button onClick={() => {
                             handleDeleteToDo(index)
-                        }}>
+                        }} className="trashButton">
                             <i className="fa-solid fa-trash" ></i>
                         </button>
                         

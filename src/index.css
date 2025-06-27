@@ -8,7 +8,7 @@
 
 html, body {
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1A1B1F;
   background-attachment: fixed;
 }
 
@@ -76,12 +76,12 @@ header input {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
-  color: #333;
+  color: #e2dddd;
   font-size: 1rem;
 }
 
 header input::placeholder {
-  color: #666;
+  color: #e2dddd;
 }
 
 header button {
@@ -110,7 +110,7 @@ header input {
 
 p {
   font-size: 0.9em;
-  color: #333;
+  color: #e2dddd;
 }
 
 .main {
@@ -125,7 +125,7 @@ p {
   gap: 14px;
   padding: 14px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -150,18 +150,23 @@ p {
 .actionsContainer button {
   transition-duration: 200ms;
   border: none;
-  background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 8px;
-  color: #666;
   backdrop-filter: blur(10px);
 }
 
+.trashButton{
+  background: rgb(139, 55, 55);
+}
+
 .actionsContainer button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: #333;
   transform: scale(1.1);
+}
+
+.todoInput{
+    background: rgba(240, 234, 234, 0.25);
+
 }
 
 @media (min-width: 640px) {
@@ -174,3 +179,4 @@ p {
     font-size: 1em;
   }
 }
+
