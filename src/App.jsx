@@ -1,57 +1,20 @@
-import {useState, useEffect} from "react"
-import ToDoCard from "./components/ToDoCard"
-import ToDoInput from "./components/ToDoInput"
-import ToDoList from "./components/ToDoList"
+import { Routes, Route, Link } from 'react-router-dom'
+import ToDoApp from './components/ToDo/ToDoApp'
+import PomodoroApp from './components/pomodoro/PomodoroApp'
 
 const App = () => {
-
-
-  const [todos, setTodos] = useState([])
-  const [todoValue, setTodoValue] = useState('')
-
-  function persistData(newList) {
-    localStorage.setItem('todos', JSON.stringify({ todos: newList }))
-  }
-
-  function handleAddToDos(newTodo){
-    const newTodoList = [...todos, newTodo]
-    persistData(newTodoList)
-    setTodos(newTodoList)
-  }
-
-  function handleDeleteToDo(index){
-    const newTodoList = todos.filter((todo,todoIndex) => {
-      return todoIndex !== index
-    })
-    persistData(newTodoList)
-    setTodos(newTodoList)
-  }
-  function handleEditToDo(index){
-    const valueToBeEdited = todos[index]
-    setTodoValue(valueToBeEdited)
-    handleDeleteToDo(index)
-  }
-  useEffect(() => {
-      if (!localStorage) {
-        return
-      }
-
-      let localTodos = localStorage.getItem('todos')
-      if (!localTodos) {
-        return
-      }
-
-      console.log(localTodos)
-      localTodos = JSON.parse(localTodos).todos
-      setTodos(localTodos)
-
-    }, [])
-  
   return (
-    
     <>
-      <ToDoInput handleAddToDos={handleAddToDos} todoValue={todoValue} setTodoValue={setTodoValue} />
-      <ToDoList handleEditToDo={handleEditToDo} handleDeleteToDo={handleDeleteToDo} todos={todos}/>
+      <nav>
+        <Link to="/todo">Todo</Link>
+        <Link to="/pomodoro">Pomodoro</Link>
+      </nav>
+      
+      <Routes>
+        <Route path="/todo" element={<ToDoApp />} />
+        <Route path="/pomodoro" element={<PomodoroApp/>}></Route>
+        
+      </Routes>
     </>
   )
 }

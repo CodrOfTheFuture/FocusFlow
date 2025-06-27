@@ -6,6 +6,12 @@
   color: #202124;
 }
 
+html, body {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+}
+
 h1,
 h2,
 h3,
@@ -19,13 +25,39 @@ button {
   display: flex;
   flex-direction: column;
   padding: 14px;
-  background: #eff6ff;
-  gap: 14px;
+  gap: 8px;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 header {
   display: flex;
   align-items: stretch;
+  margin-bottom: 0.5rem;
 }
 
 header,
@@ -41,17 +73,32 @@ header input {
   border-radius: 14px;
   outline: none;
   width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #333;
+  font-size: 1rem;
+}
+
+header input::placeholder {
+  color: #666;
 }
 
 header button {
   border-radius: 14px;
-  background: transparent;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
   transition-duration: 200ms;
   cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 header button:hover {
-  opacity: 0.7;
+  background: linear-gradient(45deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 header button,
@@ -59,11 +106,11 @@ header input {
   padding: 14px 18px;
   border: none;
   outline: none;
-  background: white;
 }
 
 p {
   font-size: 0.9em;
+  color: #333;
 }
 
 .main {
@@ -78,7 +125,16 @@ p {
   gap: 14px;
   padding: 14px;
   border-radius: 14px;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.todoItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .todoItem p {
@@ -94,18 +150,21 @@ p {
 .actionsContainer button {
   transition-duration: 200ms;
   border: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #666;
+  backdrop-filter: blur(10px);
 }
 
 .actionsContainer button:hover {
-  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.3);
+  color: #333;
+  transform: scale(1.1);
 }
 
-
-
 @media (min-width: 640px) {
-
   header button,
   header input {
     font-size: 1.2em;

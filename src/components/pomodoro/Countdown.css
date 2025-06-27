@@ -1,0 +1,139 @@
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  font-family: 'Press Start 2P', monospace;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.timer-display {
+  font-size: 4.5rem;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+  padding: 1.5rem 2.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.1em;
+  min-width: 350px;
+  text-align: center;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.timer-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', monospace;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.start-btn:hover {
+  background: linear-gradient(45deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pause-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+}
+
+.pause-btn:hover {
+  background: linear-gradient(45deg, #ee5a52, #e04848);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reset-btn {
+  background: linear-gradient(45deg, #ffa726, #ff9800);
+  color: white;
+}
+
+.reset-btn:hover {
+  background: linear-gradient(45deg, #ff9800, #f57c00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.timer-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timer-title {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  margin-top: 0; 
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.timer-status {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .countdown-container {
+    max-width: 90%;
+    margin: 1rem auto;
+    padding: 1.5rem;
+  }
+  
+  .timer-display {
+    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
+    min-width: 240px;
+  }
+  
+  .timer-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .timer-btn {
+    width: 200px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .timer-title {
+    font-size: 1.1rem;
+  }
+}
