@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react"
+import { Link } from 'react-router-dom'
 import ToDoInput from "./ToDoInput"
 import ToDoList from "./ToDoList"
 
 const ToDoApp = () => {
-2
 
   const [todos, setTodos] = useState([])
   const [todoValue, setTodoValue] = useState('')
@@ -48,6 +48,10 @@ const ToDoApp = () => {
   return (
     
     <>
+      <div className="page-header">
+        <Link to="/" className="back-btn">← Back to Home</Link>
+        <h1 className="page-title">📝 Todo Manager</h1>
+      </div>
       <ToDoInput handleAddToDos={handleAddToDos} todoValue={todoValue} setTodoValue={setTodoValue} />
       <ToDoList handleEditToDo={handleEditToDo} handleDeleteToDo={handleDeleteToDo} todos={todos}/>
     </>
