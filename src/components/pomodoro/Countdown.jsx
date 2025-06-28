@@ -4,11 +4,20 @@ import './Countdown.css'
 
 
 const Countdown = () => {
-    const [secondsLeft, setSecondsLeft] = useState(1500);
-    const [isRunning, setIsRunning] = useState(false);
+    const [secondsLeft, setSecondsLeft] = useState(() => {
+        const saved = localStorage.getItem('pomodoro-end-time')
+        if (saved) {
+            const remaining = Math.max(0, Math.floor((parseInt(saved) - Date.now()) / 1000))
+            return remaining > 0 ? remaining : 1500
+        }
+        return 1500
+    });
+    const [isRunning, setIsRunning] = useState(() => {
+        const saved = localStorage.getItem('pomodoro-end-time')
+        return saved && parseInt(saved) > Date.now()
+    });
     const minutes = Math.floor(secondsLeft / 60);
     const seconds = secondsLeft % 60;
-
 
     useEffect(() => {
         if (!isRunning) return;
@@ -37,7 +46,10 @@ const Countdown = () => {
                 <div className="timer-controls">
                     <button 
                         className="timer-btn start-btn"
-                        onClick={() => setIsRunning(true)}
+                        onClick={() => {
+                            setIsRunning(true)
+                            localStorage.setItem('pomodoro-end-time', (Date.now() + secondsLeft * 1000).toString())
+                        }}
                         disabled={isRunning}
                     >
                         Start
@@ -45,7 +57,10 @@ const Countdown = () => {
 
                     <button 
                         className="timer-btn pause-btn"
-                        onClick={() => setIsRunning(false)}
+                        onClick={() => {
+                            setIsRunning(false)
+                            localStorage.removeItem('pomodoro-end-time')
+                        }}
                         disabled={!isRunning}
                     >
                         Pause
@@ -56,6 +71,7 @@ const Countdown = () => {
                         onClick={() => {
                             setIsRunning(false);
                             setSecondsLeft(1500);
+                            localStorage.removeItem('pomodoro-end-time');
                         }}
                     >
                         Reset
